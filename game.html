@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container {
+            width: 800px;
+            height: 800px;
+            background-color: black;
+            border: 3px solid rgb(89, 0, 190);
+        }
+        #insider {
+            width: 25px;
+            height: 25px;
+            background-color: blueviolet;
+        }
+        *{
+            transition: 0.5s;
+        }
+    </style>
+</head>
+<body>
+    <div id="container" >
+        <img src="img/putin.jpg" id="insider" onclick="doIt()">
+      
+    </div>
+    <p id="text"></p>
+
+    <script>
+        setInterval(() => {
+            document.querySelector('#text').textContent = 'рандомное число: ' + random(0, 1000);
+            document.querySelector('#insider').style.marginLeft = random(0, 770) + 'px';
+            document.querySelector('#insider').style.marginTop = random(0, 770) + 'px';
+        }, 500);
+
+        function doIt(){  
+            alert('you win');
+        }
+
+        function random(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+    </script>
+</body>
+</html>
